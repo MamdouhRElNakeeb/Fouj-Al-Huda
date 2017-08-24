@@ -1,0 +1,24 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, ’10.0’
+
+target 'Hegg' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for Hegg
+  pod 'Alamofire', '~> 4.3'
+  pod 'SDWebImage', '~>3.8'
+  pod 'GoogleMaps'
+  pod 'GooglePlaces'
+  pod 'GooglePlacesAPI'
+  pod 'CollieGallery'
+  pod 'YouTubePlayer'
+  pod 'NoChat', '~> 0.3'
+  pod 'NOCProtoKit', :path => '../'
+  pod 'YYText'
+  pod 'HPGrowingTextView'
+  pod 'Firebase/Core'
+  pod 'Firebase/Messaging'
+  
+
+end

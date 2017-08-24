@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">فوج الهدى</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="GOOGLE_API_KEY">AIzaSyDGFQVH3DRa6K8sT4V7r3gaanxhRTYYKKw</string>
+    <string name="main">الرئيسية</string>
+    <string name="title">الجدول الزمنى</string>
+    <string name="timeline">الخطة الزمنية</string>
+    <string name="videos">الفيديوهات</string>
+    <string name="pic">الصور</string>
+    <string name="news">الاخبار</string>
+    <string name="about_company">عن الشركة</string>
+    <string name="contact_us">إتصل بنا</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+    <string name="choose_your_service">اختر خدمتك</string>
+    <string name="gadwl">الجدول</string>
+    <string name="amakn_tgmo3">اماكن التجمع</string>
+    <string name="our_locations">مواقعنا بالمشاعر</string>
+    <string name="fatwas">الفتاوى</string>
+    <string name="sewar">الصور</string>
+    <string name="company">فوج الهدى  لحجاج الداخل</string>
+    <string name="welcome">مرحبا بك</string>
+    <string name="beta_news">خبر تجريبى</string>
+    <string name="beta_news_description">خبر تجريبى خبر تجريبى خبر تجريبى خبر تجريبى خبر تجريبى خبر تجريبى خبر تجريبى خبر تجريبى خبر تجريبى</string>
+    <string name="beta_news_date">الاربعاء 1 يونيو 2017</string>
+    <string name="hegg_app">تطبيق الحج</string>
+    <string name="about_us">من نحن</string>
+    <string name="www_ahalyalqassim_com">website</string>
+    <string name="website">www.foujalhuda.com</string>
+    <string name="description">شركة فوج الهدى إحدى الشركات التي تقدم أرقى الخدمات لضيوف الرحمن، لحجاج الداخل من مواطنين ومقيمين وبأسعار منافسة. تنبع خبرة الشركة أكثر من 20 عام والتي كانت ومازالت تقدم فيها الخدمات لضيوف الرحمن، وهي تسعى لتقديم خدمات أفضل في كل عام مستفيدين من تجاربنا وخبراتنا مع ابتكار الجديد والمفيد دائماً.. تدير الحملة نخبة من الكوادر من ذوي الخبرات الإدارية والمهنية العريقة في هذا المجال. رؤيتنا نؤمن بمستقبل غير محدود للإمكانيات .. وهذا ما يدفعنا اليوم للانطلاق بهذا القطاع لما هو أبعد .. حيث نجعل من التطور واقعا ملموساً ومؤثراً في طريقة أداء خدمة ضيوف الرحمن .. طموحاتنا تقودنا نحو تقديم الأفضل لعملائنا.. مستندين في ذلك إلى إبداعنا وخبرتنا.. وعزمنا على التطور الدائم ،، رسالتنا تقديم خدمة متكاملة لحجاج بيت الله الحرام والتفاني في ذلك ليتفرغ الحاج لعبادته ويؤديها كما أراد الله سبحانه وتعالى وعلى منهج المصطفي صلى الله عليه وسلم</string>
+    <string name="company_description">شركة فوج الهدى إحدى الشركات التي تقدم أرقى الخدمات لضيوف الرحمن، لحجاج الداخل من مواطنين ومقيمين وبأسعار منافسة. تقديم خدمة متكاملة لحجاج بيت الله الحرام والتفاني في ذلك ليتفرغ الحاج لعبادته ويؤديها كما أراد الله سبحانه وتعالى وعلى منهج المصطفي صلى الله عليه وسلم</string>
+    <string name="camp_news">اخبار الحملة</string>
+    <string name="pics">صور الحملة</string>
+    <string name="mawke3na">موقعنا بالمشاعر</string>
+    <string name="fatawy">الفتاوى</string>
+    <string name="request_fatwa">طلب فتوى</string>
+    <string name="fatwa_has_sent">تم ارسال سؤالك...شكرا لك</string>
+    <string name="ok">موافق</string>
+    <string name="chair_has_been_request">تم ارسال طلبك</string>
+    <string name="request_chair">طلب كرسى</string>
+    <string name="ask_question_here">اكتب سؤالك هنا</string>
+    <string name="user_guide">دليل الحملة</string>
+
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="50c35268-8e97-4fb7-967d-116241a151ef" name="Nakeeb" url="http://hegg.nakeeb.me">
+        <fileTransfer host="hegg.nakeeb.me" port="21" rootFolder="/hegg.nakeeb.me/API/qassem">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
