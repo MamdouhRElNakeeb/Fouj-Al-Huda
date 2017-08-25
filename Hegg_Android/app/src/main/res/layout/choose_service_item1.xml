@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/ll_mawk3na"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/stroke"
+                android:onClick="navigateScreen"
+                android:orientation="vertical"
+                android:padding="10dp"
+               >
+
+                <ImageView
+                    android:layout_width="96dp"
+                    android:layout_height="48dp"
+                    android:tint="@color/white"
+                    android:id="@+id/iv_marker"
+                    />
+
+                <TextView
+                    style="@style/TvStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/our_locations"
+
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/ll_amakn_tgmo3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/stroke"
+                android:onClick="navigateScreen"
+                android:layout_marginRight="20dp"
+                android:orientation="vertical"
+                android:padding="10dp"
+                >
+
+                <ImageView
+                    android:layout_width="96dp"
+                    android:layout_height="48dp"
+                    android:tint="@color/white"
+                    android:id="@+id/iv_maps"
+                    />
+
+                <TextView
+                    style="@style/TvStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/amakn_tgmo3" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/ll_fatawy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/stroke"
+                android:onClick="navigateScreen"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <ImageView
+                    android:layout_width="96dp"
+                    android:layout_height="48dp"
+                    android:id="@+id/iv_fatawa"
+                    />
+
+                <TextView
+                    style="@style/TvStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/fatwas"
+
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_timeline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/stroke"
+                android:onClick="navigateScreen"
+                android:orientation="vertical"
+                android:layout_marginRight="20dp"
+                android:padding="10dp"
+                >
+                <ImageView
+                    android:layout_width="96dp"
+                    android:layout_height="48dp"
+                    android:tint="@color/white"
+                    android:id="@+id/iv_timeline"
+                    />
+
+                <TextView
+                    style="@style/TvStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/gadwl"
+
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/ll_pics"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/stroke"
+                android:onClick="navigateScreen"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <ImageView
+                    android:layout_width="96dp"
+                    android:layout_height="48dp"
+                    android:tint="@color/white"
+                    android:id="@+id/iv_gallery"
+                    />
+
+
+                <TextView
+                    style="@style/TvStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/sewar"
+
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/ll_videos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/stroke"
+                android:onClick="navigateScreen"
+                android:orientation="vertical"
+                android:layout_marginRight="20dp"
+                android:padding="10dp">
+
+                <ImageView
+                    android:id="@+id/iv_videos"
+                    android:layout_width="96dp"
+                    android:layout_height="48dp"
+                    android:tint="@color/white" />
+
+                <TextView
+                    style="@style/TvStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/videos"
+
+                    />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/ll_about_us"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/stroke"
+                android:onClick="navigateScreen"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <ImageView
+                    android:layout_width="96dp"
+                    android:layout_height="48dp"
+                    android:id="@+id/iv_about"
+                    android:tint="@color/white" />
+
+
+                <TextView
+                    style="@style/TvStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/about_company"
+
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_news"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/stroke"
+                android:onClick="navigateScreen"
+                android:orientation="vertical"
+                android:layout_marginRight="20dp"
+                android:padding="10dp">
+
+                <ImageView
+                    android:layout_width="96dp"
+                    android:layout_height="48dp"
+                    android:tint="@color/white"
+                    android:id="@+id/iv_news"/>
+
+                <TextView
+                    style="@style/TvStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/news"
+
+                    />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+

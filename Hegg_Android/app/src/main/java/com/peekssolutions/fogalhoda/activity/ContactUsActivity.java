@@ -34,12 +34,14 @@ public class ContactUsActivity extends AppCompatActivity {
     ImageView iv_background ;
     ImageView iv_logo ;
     ImageView iv_ic ;
-    @BindView(R.id.et_fatwa)
-    EditText et_phone ;
+    @BindView(R.id.et_msg)
+    EditText et_msg ;
     @BindView(R.id.et_subject)
     EditText et_subject;
-    @BindView(R.id.et_userID)
-    EditText et_userID;
+    @BindView(R.id.et_phone)
+    EditText et_phone;
+    @BindView(R.id.et_name)
+    EditText et_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,10 +102,36 @@ public class ContactUsActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn_request_fatwa)
     public void requestChair(View view){
+
+        if (et_phone.getText().toString().trim().isEmpty() || et_name.getText().toString().trim().isEmpty()
+                || et_subject.getText().toString().trim().isEmpty() || et_msg.getText().toString().trim().isEmpty()){
+
+            AlertDialog.Builder builder;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                builder = new AlertDialog.Builder(ContactUsActivity.this, android.R.style.Theme_Material_Dialog_Alert);
+            } else {
+                builder = new AlertDialog.Builder(ContactUsActivity.this);
+            }
+            builder.setTitle("مشكلة")
+                    .setMessage("برجاء ملئ جميع البيانات")
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            // continue with delete
+                            finish();
+                        }
+                    })
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
+
+
+            return;
+        }
+
         AndroidNetworking.get(Url.CHAIR_REQUEST)
-                .addQueryParameter("userID", et_userID.getText().toString().trim())
+                .addQueryParameter("userID", et_phone.getText().toString().trim())
                 .addQueryParameter("subject", et_subject.getText().toString().trim())
-                .addQueryParameter("msg", et_phone.getText().toString().trim())
+                .addQueryParameter("msg", et_msg.getText().toString().trim())
+                .addQueryParameter("name", et_name.getText().toString().trim())
                 .build()
                 .getAsObject(ServerResponse.class, new ParsedRequestListener<ServerResponse>() {
                     @Override

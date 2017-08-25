@@ -8,6 +8,7 @@ import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -29,6 +30,9 @@ public class AboutUsActivity extends AppCompatActivity implements OnMapReadyCall
     ImageView iv_background ;
     @BindView(R.id.cv_website)
     CardView cv_website ;
+
+    @BindView(R.id.call_no1)
+    TextView callNo1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +70,16 @@ public class AboutUsActivity extends AppCompatActivity implements OnMapReadyCall
 
             }
         });
+
+        callNo1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:" + callNo1.getText().toString()));
+                startActivity(intent);
+            }
+        });
+
     }
 
 

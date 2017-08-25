@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.peekssolutions.fogalhoda.activity.RequestChairActivity">
+    android:orientation="vertical">
 
 
     <include
@@ -16,12 +15,24 @@
 
     <EditText
         android:layout_marginTop="30dp"
-        android:id="@+id/et_userID"
+        android:id="@+id/et_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:includeFontPadding="false"
         android:lines="1"
-        android:hint="User ID" />
+        android:hint="الاسم" />
+
+    <EditText
+        android:layout_marginTop="30dp"
+        android:id="@+id/et_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:includeFontPadding="false"
+        android:inputType="phone"
+        android:textAlignment="gravity"
+        android:gravity="right"
+        android:lines="1"
+        android:hint="رقم الجوال" />
 
 
     <EditText
@@ -33,7 +44,7 @@
         android:hint="عنوان الرسالة"/>
 
     <EditText
-        android:id="@+id/et_fatwa"
+        android:id="@+id/et_msg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:lines="6"

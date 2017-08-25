@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">فوج الهدى</string>
     <string name="title_activity_maps">Map</string>
-    <string name="GOOGLE_API_KEY">AIzaSyDGFQVH3DRa6K8sT4V7r3gaanxhRTYYKKw</string>
+    <string name="GOOGLE_API_KEY">AIzaSyAaKC-V6JT2M0iP6NUm3aXWkHBElCySfxQ</string>
     <string name="main">الرئيسية</string>
     <string name="title">الجدول الزمنى</string>
     <string name="timeline">الخطة الزمنية</string>
@@ -18,14 +18,14 @@
     <string name="our_locations">مواقعنا بالمشاعر</string>
     <string name="fatwas">الفتاوى</string>
     <string name="sewar">الصور</string>
-    <string name="company">فوج الهدى  لحجاج الداخل</string>
+    <string name="company">فوج الهدى لحجاج الداخل</string>
     <string name="welcome">مرحبا بك</string>
     <string name="beta_news">خبر تجريبى</string>
     <string name="beta_news_description">خبر تجريبى خبر تجريبى خبر تجريبى خبر تجريبى خبر تجريبى خبر تجريبى خبر تجريبى خبر تجريبى خبر تجريبى</string>
     <string name="beta_news_date">الاربعاء 1 يونيو 2017</string>
     <string name="hegg_app">تطبيق الحج</string>
     <string name="about_us">من نحن</string>
-    <string name="www_ahalyalqassim_com">website</string>
+    <string name="www_foujalhuda_com">website</string>
     <string name="website">www.foujalhuda.com</string>
     <string name="description">شركة فوج الهدى إحدى الشركات التي تقدم أرقى الخدمات لضيوف الرحمن، لحجاج الداخل من مواطنين ومقيمين وبأسعار منافسة. تنبع خبرة الشركة أكثر من 20 عام والتي كانت ومازالت تقدم فيها الخدمات لضيوف الرحمن، وهي تسعى لتقديم خدمات أفضل في كل عام مستفيدين من تجاربنا وخبراتنا مع ابتكار الجديد والمفيد دائماً.. تدير الحملة نخبة من الكوادر من ذوي الخبرات الإدارية والمهنية العريقة في هذا المجال. رؤيتنا نؤمن بمستقبل غير محدود للإمكانيات .. وهذا ما يدفعنا اليوم للانطلاق بهذا القطاع لما هو أبعد .. حيث نجعل من التطور واقعا ملموساً ومؤثراً في طريقة أداء خدمة ضيوف الرحمن .. طموحاتنا تقودنا نحو تقديم الأفضل لعملائنا.. مستندين في ذلك إلى إبداعنا وخبرتنا.. وعزمنا على التطور الدائم ،، رسالتنا تقديم خدمة متكاملة لحجاج بيت الله الحرام والتفاني في ذلك ليتفرغ الحاج لعبادته ويؤديها كما أراد الله سبحانه وتعالى وعلى منهج المصطفي صلى الله عليه وسلم</string>
     <string name="company_description">شركة فوج الهدى إحدى الشركات التي تقدم أرقى الخدمات لضيوف الرحمن، لحجاج الداخل من مواطنين ومقيمين وبأسعار منافسة. تقديم خدمة متكاملة لحجاج بيت الله الحرام والتفاني في ذلك ليتفرغ الحاج لعبادته ويؤديها كما أراد الله سبحانه وتعالى وعلى منهج المصطفي صلى الله عليه وسلم</string>
@@ -37,8 +37,18 @@
     <string name="fatwa_has_sent">تم ارسال سؤالك...شكرا لك</string>
     <string name="ok">موافق</string>
     <string name="chair_has_been_request">تم ارسال طلبك</string>
-    <string name="request_chair">طلب كرسى</string>
+    <string name="request_chair">طلب كرسي</string>
+    <string name="hagg_tayeh">الحج الضايع</string>
     <string name="ask_question_here">اكتب سؤالك هنا</string>
-    <string name="user_guide">دليل الحملة</string>
+    <string name="user_guide">دليل الحج و المعتمر</string>
+
+    <!--    Permissions    -->
+    <string name="permission_rationale_location">Access to the location service is required to demonstrate the \'my location\' feature, which shows your current location on the map.</string>
+    <string name="location_permission_denied">This app requires location permission to enable the \'my location\' layer. Please try again and grant access to use the location.\nIf the permission has been permanently denied, it can be enabled from the System Settings &gt; Apps &gt; \'Google Maps API Demos\'.</string>
+    <string name="permission_required_toast">Location permission is required for this demo.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hagg_daye3">الحج الضائع</string>
 
 </resources>

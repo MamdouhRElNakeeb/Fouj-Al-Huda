@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -25,8 +26,11 @@ import com.androidnetworking.interfaces.JSONArrayRequestListener;
 import com.peekssolutions.fogalhoda.R;
 import com.peekssolutions.fogalhoda.adapter.PicsAdapter;
 import com.peekssolutions.fogalhoda.listener.PicsListener;
+import com.peekssolutions.fogalhoda.utils.PicassoImageLoader;
 import com.peekssolutions.fogalhoda.utils.Url;
 import com.rx2androidnetworking.Rx2AndroidNetworking;
+import com.veinhorn.scrollgalleryview.MediaInfo;
+import com.veinhorn.scrollgalleryview.ScrollGalleryView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -47,6 +51,12 @@ public class PicsActivity extends AppCompatActivity implements PicsListener {
     Toolbar mToolbar;
     TextView toolbar_title ;
 
+    @BindView(R.id.scroll_gallery_view)
+    ScrollGalleryView scrollGalleryView;
+
+    ArrayList<String> picUrls;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,24 +74,27 @@ public class PicsActivity extends AppCompatActivity implements PicsListener {
                 .getAsJSONArray(new JSONArrayRequestListener() {
                     @Override
                     public void onResponse(final JSONArray response) {
+
                         new Thread(new Runnable() {
                             @Override
                             public void run() {
-                                List<String> list =new ArrayList<String>();
+                                picUrls = new ArrayList<String>();
 
                                 for (int i=0;i<response.length();i++){
                                     try {
                                         String name = response.getString(i) ;
-                                        list.add(name);
+                                        picUrls.add(Url.PREVIEW_IMAGE + name);
                                     } catch (JSONException e) {
                                         e.printStackTrace();
                                     }
                                 }
-                                picsAdapter=new PicsAdapter(list,PicsActivity.this);
+                                //picsAdapter=new PicsAdapter(list,PicsActivity.this);
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        initRecycler();
+
+                                        initGallery();
+                                        //initRecycler();
                                     }
                                 });
                             }
@@ -119,6 +132,23 @@ public class PicsActivity extends AppCompatActivity implements PicsListener {
         rv_pics.setAdapter(picsAdapter);
     }
 
+    private void initGallery(){
+
+        progress.dismiss();
+        List<MediaInfo> infos = new ArrayList<>(picUrls.size());
+        for (String url : picUrls) infos.add(MediaInfo.mediaLoader(new PicassoImageLoader(url)));
+
+        scrollGalleryView
+                .setThumbnailSize(100)
+                .setZoom(true)
+                .setFragmentManager(getSupportFragmentManager())
+                .addMedia(infos);
+
+    }
+
+    private Bitmap toBitmap(int image) {
+        return ((BitmapDrawable) getResources().getDrawable(image)).getBitmap();
+    }
 
     @Override
     public void onBackPressed() {
@@ -159,7 +189,7 @@ public class PicsActivity extends AppCompatActivity implements PicsListener {
 
     public  boolean isStoragePermissionGranted() {
         if (Build.VERSION.SDK_INT >= 23) {
-            if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+            if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                     == PackageManager.PERMISSION_GRANTED) {
                 Log.v("Permisson","Permission is granted");
                 return true;

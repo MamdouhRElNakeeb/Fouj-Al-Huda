@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/colorPrimary"
+    android:background="@color/white"
     android:contentInsetStart="0dp"
     android:contentInsetEnd="0dp"
     android:contentInsetRight="0dp"
@@ -14,7 +14,6 @@
         android:layout_height="wrap_content"
         android:layoutDirection="rtl"
         tools:text="مرحبا بك"
-        android:textColor="@color/colorPrimaryDark"
         android:layout_gravity="center_horizontal"
         android:id="@+id/toolbarText"
         />

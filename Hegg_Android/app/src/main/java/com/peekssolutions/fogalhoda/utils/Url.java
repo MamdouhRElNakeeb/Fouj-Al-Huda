@@ -17,4 +17,5 @@ public class Url {
     public static final String GET_FATWA = BASE_URL+"getFatawy.php" ;
     public static final String CHAIR_REQUEST=BASE_URL+"chairOrder.php";
     public static final String USER_GUIDE_REQUEST=BASE_URL+"getGuide.php";
+    public static final String HAGG_TAYEH_REQUEST=BASE_URL+"tayeh.php";
 }

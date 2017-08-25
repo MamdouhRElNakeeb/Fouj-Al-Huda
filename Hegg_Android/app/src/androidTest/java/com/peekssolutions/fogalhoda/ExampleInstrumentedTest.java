@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.khaled.hegg", appContext.getPackageName());
+        assertEquals("com.peekssolutions.fogalhoda", appContext.getPackageName());
     }
 }

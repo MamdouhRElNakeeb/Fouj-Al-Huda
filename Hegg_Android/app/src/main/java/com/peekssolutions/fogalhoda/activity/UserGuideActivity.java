@@ -38,7 +38,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class UserGuideActivity extends AppCompatActivity implements BookListener{
+public class UserGuideActivity extends AppCompatActivity implements BookListener {
 
     public static final String MESSAGE_PROGRESS = "book_progress";
     private static final int PERMISSION_REQUEST_CODE = 2;
@@ -108,7 +108,7 @@ public class UserGuideActivity extends AppCompatActivity implements BookListener
     }
 
     private void initToolbar() {
-        toolbar_title = ButterKnife.findById(mToolbar,R.id.toolbarText);
+        toolbar_title=   ButterKnife.findById(mToolbar,R.id.toolbarText);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle("");
         toolbar_title.setText(R.string.user_guide);
@@ -211,4 +211,9 @@ public class UserGuideActivity extends AppCompatActivity implements BookListener
         }
     };
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 }

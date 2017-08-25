@@ -36,6 +36,12 @@ public class RequestFatwaActivity extends AppCompatActivity {
     ImageView iv_ic ;
     @BindView(R.id.et_fatwa)
     EditText et_fatwa ;
+    @BindView(R.id.et_name)
+    EditText et_name ;
+    @BindView(R.id.et_email)
+    EditText et_email ;
+    @BindView(R.id.et_phone)
+    EditText et_phone ;
 
 
 
@@ -98,9 +104,37 @@ public class RequestFatwaActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn_request_fatwa)
     public void requestFatwa(View view){
+
+        if (et_fatwa.getText().toString().trim().isEmpty() || et_name.getText().toString().trim().isEmpty()
+                || et_phone.getText().toString().trim().isEmpty() || et_email.getText().toString().trim().isEmpty()){
+
+            AlertDialog.Builder builder;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                builder = new AlertDialog.Builder(RequestFatwaActivity.this, android.R.style.Theme_Material_Dialog_Alert);
+            } else {
+                builder = new AlertDialog.Builder(RequestFatwaActivity.this);
+            }
+            builder.setTitle("مشكلة")
+                    .setMessage("برجاء ملئ جميع البيانات")
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            // continue with delete
+                            finish();
+                        }
+                    })
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
+
+
+            return;
+        }
+
         Log.e("Tag","REQUEST FATWA");
         AndroidNetworking.get(Url.FATWA_REQUEST)
-                .addQueryParameter("question",et_fatwa.getText().toString() )
+                .addQueryParameter("question",et_fatwa.getText().toString())
+                .addQueryParameter("name",et_name.getText().toString())
+                .addQueryParameter("phone",et_phone.getText().toString())
+                .addQueryParameter("email",et_email.getText().toString())
                 .build()
                 .getAsObject(ServerResponse.class, new ParsedRequestListener<ServerResponse>() {
                     @Override

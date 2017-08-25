@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.peekssolutions.fogalhoda.activity.AboutUsActivity">
+    android:layout_height="match_parent">
 
 
 
@@ -36,6 +35,7 @@
                 android:layout_height="96dp"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="14dp"
+                android:layout_marginTop="16dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/logo_icon"
                 android:layout_marginBottom="10dp"/>
@@ -44,10 +44,10 @@
             <View
                 android:id="@+id/top_bar"
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
+                android:layout_height="1dp"
                 android:layout_below="@id/iv_logo"
                 android:layout_centerHorizontal="true"
-                android:background="@color/colorPrimary"
+                android:background="@color/white"
                 android:layout_marginStart="25dp"
                 android:layout_marginEnd="25dp"
                 />
@@ -68,9 +68,9 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
+                android:layout_height="1dp"
                 android:layout_below="@id/tv_about_us"
-                android:background="@color/colorPrimary"
+                android:background="@color/white"
                 android:layout_marginStart="25dp"
                 android:layout_marginEnd="25dp"
                 />
@@ -82,7 +82,7 @@
 
     <android.support.v7.widget.CardView
         android:layout_width="0dp"
-        android:layout_height="35dp"
+        android:layout_height="70dp"
         app:layout_constraintTop_toBottomOf="@+id/header"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -90,36 +90,89 @@
         android:id="@+id/cv_website"
         >
 
-        <android.support.constraint.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="1dp"
-                android:src="@drawable/ic_www"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:padding="3dp"
-                android:tint="@color/white"
-                android:id="@+id/ic_www"
-                android:layout_marginStart="8dp" />
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/website"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintLeft_toRightOf="@+id/ic_www"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                />
-        </android.support.constraint.ConstraintLayout>
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="1dp"
+                    android:padding="5dp"
+                    android:src="@drawable/ic_www"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:tint="@color/white"
+                    android:id="@+id/ic_www"
+                    android:layout_marginStart="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/website"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/ic_www"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    />
+            </android.support.constraint.ConstraintLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                >
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="1dp"
+                    android:padding="5dp"
+                    android:src="@drawable/contact_icon"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:tint="@color/white"
+                    android:id="@+id/ic_phone"
+                    android:layout_marginStart="8dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    tools:layout_editor_absoluteY="208dp"
+                    tools:layout_editor_absoluteX="8dp">
+                    <TextView
+                        android:id="@+id/call_no1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="+966125755551"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintLeft_toRightOf="@+id/ic_phone"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
 
 
     </android.support.v7.widget.CardView>
@@ -129,7 +182,7 @@
     <android.support.v7.widget.CardView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/cv_website"
+        app:layout_constraintTop_toBottomOf="@+id/cv_website"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:cardUseCompatPadding="true"
@@ -156,7 +209,7 @@
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        tools:context="com.peekssolutions.fogalhoda.activity.AboutUsActivity"
+        tools:context="com.khaled.hegg.activity.AboutUsActivity"
         app:layout_constraintTop_toBottomOf="@+id/cv_description"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

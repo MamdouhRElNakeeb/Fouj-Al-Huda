@@ -36,6 +36,12 @@ public class RequestChairActivity extends AppCompatActivity {
     ImageView iv_ic ;
     @BindView(R.id.et_phone)
     EditText et_phone ;
+    @BindView(R.id.et_name)
+    EditText et_name;
+    @BindView(R.id.et_chairs_no)
+    EditText et_chairs_no ;
+    @BindView(R.id.et_time)
+    EditText et_time ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,8 +102,36 @@ public class RequestChairActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn_request_chair)
     public void requestChair(View view){
+
+        if (et_name.getText().toString().trim().isEmpty() || et_phone.getText().toString().trim().isEmpty()
+                || et_time.getText().toString().trim().isEmpty() || et_chairs_no.getText().toString().trim().isEmpty()){
+
+            AlertDialog.Builder builder;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                builder = new AlertDialog.Builder(RequestChairActivity.this, android.R.style.Theme_Material_Dialog_Alert);
+            } else {
+                builder = new AlertDialog.Builder(RequestChairActivity.this);
+            }
+            builder.setTitle("مشكلة")
+                    .setMessage("برجاء ملئ جميع البيانات")
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            // continue with delete
+                            finish();
+                        }
+                    })
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
+
+
+            return;
+        }
+
         AndroidNetworking.get(Url.CHAIR_REQUEST)
-                .addQueryParameter("user_id",et_phone.getText().toString())
+                .addQueryParameter("userID",et_phone.getText().toString())
+                .addQueryParameter("name",et_name.getText().toString())
+                .addQueryParameter("time",et_time.getText().toString())
+                .addQueryParameter("chairs_no",et_chairs_no.getText().toString())
                 .build()
                 .getAsObject(ServerResponse.class, new ParsedRequestListener<ServerResponse>() {
                     @Override
@@ -136,7 +170,8 @@ public class RequestChairActivity extends AppCompatActivity {
                                         }
                                     })
                                     .setIcon(android.R.drawable.ic_dialog_alert)
-                                    .show();                        }
+                                    .show();
+                        }
 
                     }
 

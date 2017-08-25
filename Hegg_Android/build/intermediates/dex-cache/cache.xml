@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/mamdouhelnakeeb/.android/build-cache/9d13ccfa460d4320f7b57ec5cf7fc721bd1813e0/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="d3efa7f57187532c3abed6fd797d197bf09fbfb6">
+        <dex dex="/Users/mamdouhelnakeeb/Desktop/WORK/Upwork/Hegg/Hoda/App/Android/Hegg/app/build/intermediates/pre-dexed/debug/classes_8ac1328599e88ebc3316c7e7ad674b0ba8c026f2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/mamdouhelnakeeb/Desktop/WORK/Upwork/Hegg/Hoda/App/Android/Hegg/app/libs/YouTubeAndroidPlayerApi.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="3c4f96ff493456651cc7bdb0b47e10eb25545a16">
+        <dex dex="/Users/mamdouhelnakeeb/Desktop/WORK/Upwork/Hegg/Hoda/App/Android/Hegg/app/build/intermediates/pre-dexed/debug/YouTubeAndroidPlayerApi_a0b67781d778a18ac8ccc264b1d732f249e9c96c.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mamdouhelnakeeb/Desktop/WORK/Upwork/Hegg/Hoda/App/Android/Hegg/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="7707b54f2a386b670c6ef2e50b907f89036716dc">
+        <dex dex="/Users/mamdouhelnakeeb/Desktop/WORK/Upwork/Hegg/Hoda/App/Android/Hegg/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_18a021fdb309fd88ec1f877a9e4a3fa3f71c9483/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mamdouhelnakeeb/Desktop/WORK/Upwork/Hegg/Hoda/App/Android/Hegg/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="/Users/mamdouhelnakeeb/Desktop/WORK/Upwork/Hegg/Hoda/App/Android/Hegg/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_cf4ce35c4b8ac7ff866753e9b0182b34d88d51d6/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/mamdouhelnakeeb/Desktop/WORK/Upwork/Hegg/Hoda/App/Android/Hegg/PDFVigerLib/build/intermediates/bundles/default/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="51f05eb92c908ebf5e6e130570de1c309274e500">
+        <dex dex="/Users/mamdouhelnakeeb/Desktop/WORK/Upwork/Hegg/Hoda/App/Android/Hegg/app/build/intermediates/pre-dexed/debug/classes_9013799218aa913b08f51cd53915f3a456dffc91.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mamdouhelnakeeb/Desktop/WORK/Upwork/Hegg/Hoda/App/Android/Hegg/app/libs/YouTubeAndroidPlayerApi.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="3c4f96ff493456651cc7bdb0b47e10eb25545a16">
+        <dex dex="/Users/mamdouhelnakeeb/Desktop/WORK/Upwork/Hegg/Hoda/App/Android/Hegg/app/build/intermediates/transforms/dex/debug/folders/1000/2/YouTubeAndroidPlayerApi_a0b67781d778a18ac8ccc264b1d732f249e9c96c/classes.dex" />
+    </item>
+
+</items>

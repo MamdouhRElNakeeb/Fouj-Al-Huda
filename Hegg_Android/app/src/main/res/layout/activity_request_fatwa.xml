@@ -1,33 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.peekssolutions.fogalhoda.activity.RequestChairActivity">
+    android:orientation="vertical">
 
 
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar_image"
-        android:layout_width="0dp"
-        android:layout_height="200dp"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentInsetLeft="0dp"
-        android:contentInsetStart="0dp"
-        app:contentInsetLeft="0dp"
-        app:contentInsetStart="0dp"
-        android:contentInsetRight="0dp"
-        android:contentInsetEnd="0dp"
-        app:contentInsetRight="0dp"
-        app:contentInsetEnd="0dp"/>
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
+
+    <EditText
+        android:layout_marginTop="30dp"
+        android:id="@+id/et_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:includeFontPadding="false"
+        android:lines="1"
+        android:hint="الاسم" />
+
+    <EditText
+        android:layout_marginTop="30dp"
+        android:id="@+id/et_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:textAlignment="gravity"
+        android:inputType="phone"
+        android:includeFontPadding="false"
+        android:lines="1"
+        android:hint="رقم الجوال" />
+
+
+    <EditText
+        android:id="@+id/et_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:includeFontPadding="false"
+        android:inputType="textEmailAddress"
+        android:lines="1"
+        android:hint="البريد الإلكترونى"/>
+
+    <EditText
+        android:id="@+id/et_fatwa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lines="6"
+        android:ems="10"
+        android:includeFontPadding="false"
+        android:inputType="textMultiLine"
+        android:singleLine="false"
+        android:hint="اكتب سؤالك هنا" />
+
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/btn_request_fatwa"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="16dp"
@@ -35,32 +67,10 @@
         android:layout_marginRight="16dp"
         android:layout_marginStart="16dp"
         android:background="@color/colorPrimary"
-        android:text="طلب فتوى"
+        android:text="إرسال طلب الفتوى"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        android:textStyle="bold" />
 
-
-    <EditText
-        android:id="@+id/et_fatwa"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:ems="10"
-        android:includeFontPadding="false"
-        android:inputType="textMultiLine"
-        android:singleLine="false"
-        android:hint="@string/ask_question_here"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintBottom_toTopOf="@+id/btn_request_fatwa"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintVertical_bias="0.52" />
-
-
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

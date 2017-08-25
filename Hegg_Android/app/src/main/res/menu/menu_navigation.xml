@@ -2,16 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
 
-        <item
-            android:id="@+id/home"
-            android:title="@string/main"
-            android:icon="@drawable/ic_home"
-            />
+
 
         <item
-            android:id="@+id/tgmo3"
-            android:title="@string/amakn_tgmo3"
-            android:icon="@drawable/maps_ic"
+            android:title="@string/user_guide"
+            android:icon="@drawable/guide_ic"
+            android:id="@+id/user_guide" />
+
+        <item
+            android:id="@+id/news"
+            android:title="@string/news"
+            android:icon="@drawable/news_icon"
             />
 
         <item
@@ -19,11 +20,40 @@
             android:title="@string/mawke3na"
             android:icon="@drawable/marker_icon" />
 
+
+
+        <item
+            android:id="@+id/tgmo3"
+            android:title="@string/amakn_tgmo3"
+            android:icon="@drawable/maps_ic"
+            />
+
+
+
         <item
             android:id="@+id/timeline"
             android:title="@string/timeline"
             android:icon="@drawable/timeline_icon"
             />
+
+        <item
+            android:id="@+id/request_fatwa"
+            android:title="@string/request_fatwa"
+            android:icon="@drawable/fatwa_icon"
+            />
+
+
+        <item android:id="@+id/request_chair"
+            android:title="@string/request_chair"
+            android:icon="@drawable/chair_icon"
+            />
+
+        <item
+            android:id="@+id/hagg_tayeh"
+            android:title="@string/hagg_daye3"
+            android:icon="@drawable/marker_icon"
+            />
+
 
         <item
             android:id="@+id/videos"
@@ -37,28 +67,6 @@
             android:icon="@drawable/gallery_icon"
             />
 
-        <item
-            android:id="@+id/news"
-            android:title="@string/news"
-            android:icon="@drawable/news_icon"
-            />
-
-
-        <item android:id="@+id/request_chair"
-            android:title="@string/request_chair"
-            android:icon="@drawable/chair_icon"
-            />
-
-        <item
-            android:id="@+id/request_fatwa"
-            android:title="@string/request_fatwa"
-            android:icon="@drawable/fatwa_icon"
-            />
-
-        <item
-            android:title="@string/user_guide"
-            android:icon="@drawable/guide_ic"
-            android:id="@+id/user_guide" />
 
         <item android:title="@string/contact_us"
             android:icon="@drawable/contact_icon"
@@ -69,8 +77,6 @@
             android:title="@string/about_company"
             android:icon="@drawable/about_icon"
             />
-
-
 
     </group>
 </menu>

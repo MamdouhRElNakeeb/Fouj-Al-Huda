@@ -15,7 +15,7 @@ import java.io.File;
 
 public class Hegg extends Application {
 
-    public static final String PACKAGE_NAME = "com.khaled.hegg" ;
+    public static final String PACKAGE_NAME = "com.peekssolutions.fogalhoda" ;
 
     @Override
     public void onCreate() {
