@@ -9,12 +9,11 @@
 import UIKit
 import Alamofire
 
-class FatawyAnswersVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FatawyAnswersVC: UIViewController, UITableViewDelegate, UITableViewDataSource, SWRevealViewControllerDelegate {
     
     var newsTV: UITableView = UITableView()
     
     var fatawyArray = Array<Fatwa>()
-    let newsUrl = "http://hegg.nakeeb.me/API/hoda/getFatawy.php"
     
     var spinner = UIActivityIndicatorView()
     let effectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
@@ -25,9 +24,19 @@ class FatawyAnswersVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         
         // Do any additional setup after loading the view.
         
-        let image = UIImage(named:"sideMenuIcon")?.withRenderingMode(.alwaysTemplate)
+        if revealViewController() != nil{
+            
+            self.revealViewController().delegate = self
+            let image = UIImage(named:"sideMenuIcon")?.withRenderingMode(.alwaysTemplate)
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target:  revealViewController(), action: #selector(SWRevealViewController.rightRevealToggle(_:)))
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+            
+        }
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(SSASideMenu.presentRightMenuViewController))
+//        let image = UIImage(named:"sideMenuIcon")?.withRenderingMode(.alwaysTemplate)
+//        
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(SSASideMenu.presentRightMenuViewController))
         
         self.navigationItem.leftBarButtonItem?.title = "رجوع"
         
@@ -40,7 +49,7 @@ class FatawyAnswersVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         
         loadnews()
         initnewsTV()
-        initSpinner()
+        //initSpinner()
         
         let whiteNB = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 64))
         whiteNB.backgroundColor = UIColor.primaryColor()
@@ -104,7 +113,7 @@ class FatawyAnswersVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             return
         }
         
-        Alamofire.request(newsUrl)
+        Alamofire.request(Urls.fatawyAnswers)
             .responseJSON{
                 
                 response in

@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class MapListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MapListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, SWRevealViewControllerDelegate {
 
     var mapListType: Bool = true
     
@@ -30,23 +30,33 @@ class MapListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
         // Do any additional setup after loading the view.
         
-        let image = UIImage(named:"sideMenuIcon")?.withRenderingMode(.alwaysTemplate)
+        if revealViewController() != nil{
+            
+            self.revealViewController().delegate = self
+            let image = UIImage(named:"sideMenuIcon")?.withRenderingMode(.alwaysTemplate)
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target:  revealViewController(), action: #selector(SWRevealViewController.rightRevealToggle(_:)))
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+            
+        }
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(SSASideMenu.presentRightMenuViewController))
-        
+//        let image = UIImage(named:"sideMenuIcon")?.withRenderingMode(.alwaysTemplate)
+//        
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(SSASideMenu.presentRightMenuViewController))
+//        
         self.navigationItem.leftBarButtonItem?.title = "رجوع"
-        
+ 
         let labelTitle = UILabel()
         labelTitle.frame = CGRect(x: 0, y: 0, width: 100, height: 44)
         if mapListType {
             
             labelTitle.text = "مواقعنا بالمشاعر"
-            mapListUrl = "http://hegg.nakeeb.me/API/hoda/getCampLocations.php"
+            mapListUrl = Urls.camp
         }
         else{
             
             labelTitle.text = "أماكن التجمع"
-            mapListUrl = "http://hegg.nakeeb.me/API/hoda/getGatherLocations.php"
+            mapListUrl = Urls.gather
         }
         
         labelTitle.font = UIFont(name: "GE SS Two", size: 17)
@@ -59,7 +69,7 @@ class MapListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         loadMapList()
         initMapListTV()
-        initSpinner()
+        //initSpinner()
         
         let whiteNB = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 64))
         whiteNB.backgroundColor = UIColor.primaryColor()
@@ -110,12 +120,12 @@ class MapListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func loadMapList(){
         
-        displaySpinner()
+        //displaySpinner()
         
         let utils: Utils = Utils()
         
         if !utils.isConnectedToNetwork(){
-            dismissSpinner()
+            //dismissSpinner()
             let alert = UIAlertController(title: "تنبيه", message: "يوجد مشكلة فى الإتصال بالإنترنت", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "حاول مرة أخرى", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
@@ -127,7 +137,7 @@ class MapListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 
                 response in
                 
-                self.dismissSpinner()
+                //self.dismissSpinner()
                 
                 print(response)
                 

@@ -9,14 +9,13 @@
 import UIKit
 import Alamofire
 
-class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, SWRevealViewControllerDelegate {
     
     var newsTV: UITableView = UITableView()
     
     let dateFormat: DateFormat = DateFormat(format: "EEEE dd MMMM YYYY")
     
     var newsArray = Array<NewsItem>()
-    let newsUrl = "http://hegg.nakeeb.me/API/hoda/getNews.php"
     
     var spinner = UIActivityIndicatorView()
     let effectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
@@ -27,9 +26,19 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         // Do any additional setup after loading the view.
         
-        let image = UIImage(named:"sideMenuIcon")?.withRenderingMode(.alwaysTemplate)
+        if revealViewController() != nil{
+            
+            self.revealViewController().delegate = self
+            let image = UIImage(named:"sideMenuIcon")?.withRenderingMode(.alwaysTemplate)
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target:  revealViewController(), action: #selector(SWRevealViewController.rightRevealToggle(_:)))
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+            
+        }
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(SSASideMenu.presentRightMenuViewController))
+//        let image = UIImage(named:"sideMenuIcon")?.withRenderingMode(.alwaysTemplate)
+//        
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(SSASideMenu.presentRightMenuViewController))
         
         self.navigationItem.leftBarButtonItem?.title = "رجوع"
         
@@ -42,7 +51,7 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         loadnews()
         initnewsTV()
-        initSpinner()
+        //initSpinner()
         
         let whiteNB = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 64))
         whiteNB.backgroundColor = UIColor.primaryColor()
@@ -106,7 +115,7 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             return
         }
         
-        Alamofire.request(newsUrl)
+        Alamofire.request(Urls.news)
             .responseJSON{
                 
                 response in

@@ -11,7 +11,7 @@ import GoogleMaps
 import GooglePlaces
 import Alamofire
 
-class MapLocations: UIViewController {
+class MapLocations: UIViewController, SWRevealViewControllerDelegate {
     
     var camp: Camp = Camp()
     
@@ -82,9 +82,19 @@ class MapLocations: UIViewController {
         
         self.view.addSubview(googleMaps)
         
-        let image = UIImage(named:"sideMenuIcon")?.withRenderingMode(.alwaysTemplate)
+        if revealViewController() != nil{
+            
+            self.revealViewController().delegate = self
+            let image = UIImage(named:"sideMenuIcon")?.withRenderingMode(.alwaysTemplate)
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target:  revealViewController(), action: #selector(SWRevealViewController.rightRevealToggle(_:)))
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+            
+        }
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(SSASideMenu.presentRightMenuViewController))
+//        let image = UIImage(named:"sideMenuIcon")?.withRenderingMode(.alwaysTemplate)
+//
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(SSASideMenu.presentRightMenuViewController))
 
         self.navigationItem.leftBarButtonItem?.title = "رجوع"
         

@@ -9,14 +9,11 @@
 import UIKit
 import GoogleMaps
 
-class AboutVC: UIViewController, UIGestureRecognizerDelegate {
+class AboutVC: UIViewController, UIGestureRecognizerDelegate, SWRevealViewControllerDelegate {
 
     let lat = 21.4151678
     let lon = 39.8789227
     let campName = "فوج الهدى"
-    let fbUrl = "https://www.facebook.com/peekssolutions/"
-    let twtUrl = "https://twitter.com/peekssolutions"
-    let siteUrl = "http://foujalhuda.com"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,9 +25,19 @@ class AboutVC: UIViewController, UIGestureRecognizerDelegate {
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = UIColor.clear
         
-        let image = UIImage(named:"sideMenuIcon")?.withRenderingMode(.alwaysTemplate)
+        if revealViewController() != nil{
+            
+            self.revealViewController().delegate = self
+            let image = UIImage(named:"sideMenuIcon")?.withRenderingMode(.alwaysTemplate)
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target:  revealViewController(), action: #selector(SWRevealViewController.rightRevealToggle(_:)))
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+            
+        }
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(SSASideMenu.presentRightMenuViewController))
+//        let image = UIImage(named:"sideMenuIcon")?.withRenderingMode(.alwaysTemplate)
+//        
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(SSASideMenu.presentRightMenuViewController))
         
        
         initDesc()
@@ -188,7 +195,7 @@ class AboutVC: UIViewController, UIGestureRecognizerDelegate {
     func openSite (){
         
         UIApplication.tryURL(urls: [
-            "http://foujalhuda.com"
+            Urls.website
             ])
     }
     

@@ -9,13 +9,12 @@
 import UIKit
 import Alamofire
 
-class GuideVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class GuideVC: UIViewController, UITableViewDelegate, UITableViewDataSource, SWRevealViewControllerDelegate {
     
     var guideTV: UITableView = UITableView()
     
     
     var guideArray = Array<GuideItem>()
-    let guideUrl = "http://hegg.nakeeb.me/API/hoda/getGuide.php"
     
     var spinner = UIActivityIndicatorView()
     let effectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
@@ -26,9 +25,19 @@ class GuideVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         // Do any additional setup after loading the view.
         
-        let image = UIImage(named:"sideMenuIcon")?.withRenderingMode(.alwaysTemplate)
+        if revealViewController() != nil{
+            
+            self.revealViewController().delegate = self
+            let image = UIImage(named:"sideMenuIcon")?.withRenderingMode(.alwaysTemplate)
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target:  revealViewController(), action: #selector(SWRevealViewController.rightRevealToggle(_:)))
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+            
+        }
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(SSASideMenu.presentRightMenuViewController))
+//        let image = UIImage(named:"sideMenuIcon")?.withRenderingMode(.alwaysTemplate)
+//        
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(SSASideMenu.presentRightMenuViewController))
         
         self.navigationItem.leftBarButtonItem?.title = "رجوع"
         
@@ -39,7 +48,7 @@ class GuideVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         labelTitle.textColor = UIColor.secondryColor()
         self.navigationItem.titleView = labelTitle
         
-        initSpinner()
+        //initSpinner()
         initguideTV()
         loadguide()
         
@@ -105,7 +114,7 @@ class GuideVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             return
         }
         
-        Alamofire.request(guideUrl)
+        Alamofire.request(Urls.guide)
             .responseJSON{
                 
                 response in

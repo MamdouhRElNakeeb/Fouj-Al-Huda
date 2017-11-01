@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import Firebase
 
-class LandingVC: UIViewController, UIGestureRecognizerDelegate {
+class LandingVC: UIViewController, UIGestureRecognizerDelegate, SWRevealViewControllerDelegate {
 
     var aboutVBtn = UIButton()
     var newsVBtn = UIButton()
@@ -23,14 +23,24 @@ class LandingVC: UIViewController, UIGestureRecognizerDelegate {
     
     var userIDTF = String()
     
-    let viewDim: CGFloat = 120
-    let viewMargin: CGFloat = 24
-   
-    let userUrl = "http://hegg.nakeeb.me/API/hoda/insertUser.php"
+    let viewDim: CGFloat = UIScreen.main.bounds.width / 3 - 24
+    let viewMargin: CGFloat = 12
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        if revealViewController() != nil{
+            
+            self.revealViewController().delegate = self
+            let image = UIImage(named:"sideMenuIcon")?.withRenderingMode(.alwaysTemplate)
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target:  revealViewController(), action: #selector(SWRevealViewController.rightRevealToggle(_:)))
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+            
+        }
+        
         
         let token = Messaging.messaging().fcmToken
         print("FCM token: \(token ?? "")")
@@ -44,9 +54,9 @@ class LandingVC: UIViewController, UIGestureRecognizerDelegate {
         
         self.view.addSubview(bgImg)
         
-        let image = UIImage(named:"sideMenuIcon")?.withRenderingMode(.alwaysTemplate)
+        //let image = UIImage(named:"sideMenuIcon")?.withRenderingMode(.alwaysTemplate)
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(SSASideMenu.presentRightMenuViewController))
+        //navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(SSASideMenu.presentRightMenuViewController))
         
         initViews()
         
@@ -96,34 +106,46 @@ class LandingVC: UIViewController, UIGestureRecognizerDelegate {
     
     func initViews(){
         
-        let menuV = UIView(frame: CGRect(x: 0, y: 64, width: self.view.frame.width, height: self.view.frame.height - 64))
+        let viewMidX = (self.view.frame.width / 2) - (viewDim / 2)
+        let viewleftX = viewMidX - viewMargin - viewDim
+        let viewRightX = viewMidX + viewDim + viewMargin
         
-        mapVBtn.frame = CGRect(x: (menuV.frame.width / 2) + viewMargin, y: (menuV.frame.height / 2) - (viewMargin * 3 / 2) - (viewDim * 2), width: viewDim, height: viewDim)
+        let menuV = UIView(frame: CGRect(x: 0, y: 100, width: self.view.frame.width, height: self.view.frame.height - 64))
+        
+        let row1y = (menuV.frame.height / 2) - (viewMargin * 3 / 2) - (viewDim * 2)
+        let row2y = (menuV.frame.height / 2) - (viewMargin / 2) - viewDim
+        let row3y = (menuV.frame.height / 2) + (viewMargin / 2)
+        
+        let iconHeight: CGFloat = viewDim * 0.5
+        let lblFontSize: CGFloat = viewDim * 0.1
+        let iconTopMargin: CGFloat = viewDim * 0.2
+        
+        mapVBtn.frame = CGRect(x: viewRightX, y: row1y, width: viewDim, height: viewDim)
         
         let mapLocationsIcon = UIImageView(image: UIImage(named: "markerIcon")?.withRenderingMode(.alwaysTemplate))
         mapLocationsIcon.tintColor = UIColor.white
-        mapLocationsIcon.frame = CGRect(x: 0, y: 15, width: mapVBtn.frame.width, height: 50)
+        mapLocationsIcon.frame = CGRect(x: 0, y: iconTopMargin, width: mapVBtn.frame.width, height: iconHeight)
         mapLocationsIcon.contentMode = .scaleAspectFit
         
-        let mapLocationsLbl = UILabel(frame: CGRect(x: 0, y: mapLocationsIcon.frame.maxY + 10, width: mapVBtn.frame.width, height: 20))
-        mapLocationsLbl.font = UIFont(name: "GE SS Two", size: 12)
+        let mapLocationsLbl = UILabel(frame: CGRect(x: 0, y: mapLocationsIcon.frame.maxY, width: mapVBtn.frame.width, height: lblFontSize))
+        mapLocationsLbl.font = UIFont(name: "GE SS Two", size: lblFontSize)
         mapLocationsLbl.textColor = UIColor.secondryColor()
         mapLocationsLbl.textAlignment = .center
-        mapLocationsLbl.text = "مواقعنا بالمشاعر"
+        mapLocationsLbl.text = "مواقعنا"
         mapLocationsLbl.dropShadow2()
         
         mapVBtn.addSubview(mapLocationsIcon)
         mapVBtn.addSubview(mapLocationsLbl)
         
-        mapVBtn2.frame = CGRect(x: (menuV.frame.width / 2) - viewDim - viewMargin, y: mapVBtn.frame.minY, width: viewDim, height: viewDim)
+        mapVBtn2.frame = CGRect(x: viewMidX, y: row1y, width: viewDim, height: viewDim)
         
         let mapLocationsIcon2 = UIImageView(image: UIImage(named: "mapIcon")?.withRenderingMode(.alwaysTemplate))
         mapLocationsIcon2.tintColor = UIColor.white
-        mapLocationsIcon2.frame = CGRect(x: 0, y: 15, width: mapVBtn2.frame.width, height: 50)
+        mapLocationsIcon2.frame = CGRect(x: 0, y: iconTopMargin, width: mapVBtn2.frame.width, height: iconHeight)
         mapLocationsIcon2.contentMode = .scaleAspectFit
         
-        let mapLocationsLbl2 = UILabel(frame: CGRect(x: 0, y: mapLocationsIcon2.frame.maxY + 10, width: mapVBtn2.frame.width, height: 20))
-        mapLocationsLbl2.font = UIFont(name: "GE SS Two", size: 12)
+        let mapLocationsLbl2 = UILabel(frame: CGRect(x: 0, y: mapLocationsIcon2.frame.maxY, width: mapVBtn2.frame.width, height: lblFontSize))
+        mapLocationsLbl2.font = UIFont(name: "GE SS Two", size: lblFontSize)
         mapLocationsLbl2.textColor = UIColor.secondryColor()
         mapLocationsLbl2.textAlignment = .center
         mapLocationsLbl2.text = "أماكن التجمع"
@@ -133,15 +155,15 @@ class LandingVC: UIViewController, UIGestureRecognizerDelegate {
         mapVBtn2.addSubview(mapLocationsLbl2)
         
         
-        timelineVBtn.frame = CGRect(x: (menuV.frame.width / 2) + viewMargin, y: (menuV.frame.height / 2) - (viewMargin / 2) - viewDim, width: viewDim, height: viewDim)
+        timelineVBtn.frame = CGRect(x: viewleftX, y: row1y, width: viewDim, height: viewDim)
         
         let timelineIcon = UIImageView(image: UIImage(named: "timelineIcon")?.withRenderingMode(.alwaysTemplate))
         timelineIcon.tintColor = UIColor.white
-        timelineIcon.frame = CGRect(x: 0, y: 15, width: timelineVBtn.frame.width, height: 50)
+        timelineIcon.frame = CGRect(x: 0, y: iconTopMargin, width: timelineVBtn.frame.width, height: iconHeight)
         timelineIcon.contentMode = .scaleAspectFit
         
-        let timelineLbl = UILabel(frame: CGRect(x: 0, y: timelineIcon.frame.maxY + 10, width: timelineVBtn.frame.width, height: 20))
-        timelineLbl.font = UIFont(name: "GE SS Two", size: 17)
+        let timelineLbl = UILabel(frame: CGRect(x: 0, y: timelineIcon.frame.maxY, width: timelineVBtn.frame.width, height: lblFontSize))
+        timelineLbl.font = UIFont(name: "GE SS Two", size: lblFontSize)
         timelineLbl.textColor = UIColor.secondryColor()
         timelineLbl.textAlignment = .center
         timelineLbl.text = "الجدول"
@@ -150,15 +172,15 @@ class LandingVC: UIViewController, UIGestureRecognizerDelegate {
         timelineVBtn.addSubview(timelineIcon)
         timelineVBtn.addSubview(timelineLbl)
         
-        fatawyVBtn.frame = CGRect(x: (menuV.frame.width / 2) - viewDim -  viewMargin, y: timelineVBtn.frame.minY, width: viewDim, height: viewDim)
+        fatawyVBtn.frame = CGRect(x: viewRightX, y: row2y, width: viewDim, height: viewDim)
         
         let fatawyIcon = UIImageView(image: UIImage(named: "fatwasIcon")?.withRenderingMode(.alwaysTemplate))
         fatawyIcon.tintColor = UIColor.white
-        fatawyIcon.frame = CGRect(x: 0, y: 15, width: fatawyVBtn.frame.width, height: 50)
+        fatawyIcon.frame = CGRect(x: 0, y: iconTopMargin, width: fatawyVBtn.frame.width, height: iconHeight)
         fatawyIcon.contentMode = .scaleAspectFit
         
-        let fatawyLbl = UILabel(frame: CGRect(x: 0, y: fatawyIcon.frame.maxY + 10, width: fatawyVBtn.frame.width, height: 20))
-        fatawyLbl.font = UIFont(name: "GE SS Two", size: 17)
+        let fatawyLbl = UILabel(frame: CGRect(x: 0, y: fatawyIcon.frame.maxY, width: fatawyVBtn.frame.width, height: lblFontSize))
+        fatawyLbl.font = UIFont(name: "GE SS Two", size: lblFontSize)
         fatawyLbl.textColor = UIColor.secondryColor()
         fatawyLbl.textAlignment = .center
         fatawyLbl.text = "الفتاوى"
@@ -169,15 +191,15 @@ class LandingVC: UIViewController, UIGestureRecognizerDelegate {
         
 
         
-        galleryVBtn.frame = CGRect(x: (menuV.frame.width / 2) - viewDim - viewMargin, y: (menuV.frame.height / 2) + (viewMargin / 2), width: viewDim, height: viewDim)
+        galleryVBtn.frame = CGRect(x: viewMidX, y: row2y, width: viewDim, height: viewDim)
         
         let galleryIcon = UIImageView(image: UIImage(named: "galleryIcon")?.withRenderingMode(.alwaysTemplate))
         galleryIcon.tintColor = UIColor.white
-        galleryIcon.frame = CGRect(x: 0, y: 15, width: galleryVBtn.frame.width, height: 50)
+        galleryIcon.frame = CGRect(x: 0, y: iconTopMargin, width: galleryVBtn.frame.width, height: iconHeight)
         galleryIcon.contentMode = .scaleAspectFit
         
-        let galleryLbl = UILabel(frame: CGRect(x: 0, y: galleryIcon.frame.maxY + 10, width: galleryVBtn.frame.width, height: 20))
-        galleryLbl.font = UIFont(name: "GE SS Two", size: 17)
+        let galleryLbl = UILabel(frame: CGRect(x: 0, y: galleryIcon.frame.maxY, width: galleryVBtn.frame.width, height: lblFontSize))
+        galleryLbl.font = UIFont(name: "GE SS Two", size: lblFontSize)
         galleryLbl.textColor = UIColor.secondryColor()
         galleryLbl.textAlignment = .center
         galleryLbl.text = "صور"
@@ -186,15 +208,15 @@ class LandingVC: UIViewController, UIGestureRecognizerDelegate {
         galleryVBtn.addSubview(galleryIcon)
         galleryVBtn.addSubview(galleryLbl)
         
-        videosVBtn.frame = CGRect(x: (menuV.frame.width / 2) + viewMargin, y: galleryVBtn.frame.minY, width: viewDim, height: viewDim)
+        videosVBtn.frame = CGRect(x: viewleftX, y: row2y, width: viewDim, height: viewDim)
 
         let videosIcon = UIImageView(image: UIImage(named: "videosIcon")?.withRenderingMode(.alwaysTemplate))
         videosIcon.tintColor = UIColor.white
-        videosIcon.frame = CGRect(x: 0, y: 15, width: videosVBtn.frame.width, height: 50)
+        videosIcon.frame = CGRect(x: 0, y: iconTopMargin, width: videosVBtn.frame.width, height: iconHeight)
         videosIcon.contentMode = .scaleAspectFit
         
-        let videosLbl = UILabel(frame: CGRect(x: 0, y: videosIcon.frame.maxY + 10, width: videosVBtn.frame.width, height: 20))
-        videosLbl.font = UIFont(name: "GE SS Two", size: 17)
+        let videosLbl = UILabel(frame: CGRect(x: 0, y: videosIcon.frame.maxY, width: videosVBtn.frame.width, height: lblFontSize))
+        videosLbl.font = UIFont(name: "GE SS Two", size: lblFontSize)
         videosLbl.textColor = UIColor.secondryColor()
         videosLbl.textAlignment = .center
         videosLbl.text = "فيديوهات"
@@ -203,14 +225,14 @@ class LandingVC: UIViewController, UIGestureRecognizerDelegate {
         videosVBtn.addSubview(videosIcon)
         videosVBtn.addSubview(videosLbl)
         
-        aboutVBtn.frame = CGRect(x: (menuV.frame.width / 2) - viewDim - viewMargin, y: (menuV.frame.height / 2) + (viewMargin * 3 / 2) + viewDim, width: viewDim, height: viewDim)
+        aboutVBtn.frame = CGRect(x: viewRightX, y: row3y, width: viewDim, height: viewDim)
         let aboutIcon = UIImageView(image: UIImage(named: "aboutIcon")?.withRenderingMode(.alwaysTemplate))
         aboutIcon.tintColor = UIColor.white
-        aboutIcon.frame = CGRect(x: 0, y: 15, width: aboutVBtn.frame.width, height: 50)
+        aboutIcon.frame = CGRect(x: 0, y: iconTopMargin, width: aboutVBtn.frame.width, height: iconHeight)
         aboutIcon.contentMode = .scaleAspectFit
         
-        let aboutLbl = UILabel(frame: CGRect(x: 0, y: aboutIcon.frame.maxY + 10, width: aboutVBtn.frame.width, height: 20))
-        aboutLbl.font = UIFont(name: "GE SS Two", size: 16)
+        let aboutLbl = UILabel(frame: CGRect(x: 0, y: aboutIcon.frame.maxY, width: aboutVBtn.frame.width, height: lblFontSize))
+        aboutLbl.font = UIFont(name: "GE SS Two", size: lblFontSize)
         aboutLbl.textColor = UIColor.secondryColor()
         aboutLbl.textAlignment = .center
         aboutLbl.text = "عن الشركة"
@@ -219,15 +241,15 @@ class LandingVC: UIViewController, UIGestureRecognizerDelegate {
         aboutVBtn.addSubview(aboutIcon)
         aboutVBtn.addSubview(aboutLbl)
         
-        newsVBtn.frame = CGRect(x: (menuV.frame.width / 2) + viewMargin, y: aboutVBtn.frame.minY, width: viewDim, height: viewDim)
+        newsVBtn.frame = CGRect(x: viewMidX, y: row3y, width: viewDim, height: viewDim)
         
         let newsIcon = UIImageView(image: UIImage(named: "newsIcon")?.withRenderingMode(.alwaysTemplate))
         newsIcon.tintColor = UIColor.white
-        newsIcon.frame = CGRect(x: 0, y: 15, width: newsVBtn.frame.width, height: 50)
+        newsIcon.frame = CGRect(x: 0, y: iconTopMargin, width: newsVBtn.frame.width, height: iconHeight)
         newsIcon.contentMode = .scaleAspectFit
         
-        let newsLbl = UILabel(frame: CGRect(x: 0, y: newsIcon.frame.maxY + 10, width: newsVBtn.frame.width, height: 20))
-        newsLbl.font = UIFont(name: "GE SS Two", size: 16)
+        let newsLbl = UILabel(frame: CGRect(x: 0, y: newsIcon.frame.maxY, width: newsVBtn.frame.width, height: lblFontSize))
+        newsLbl.font = UIFont(name: "GE SS Two", size: lblFontSize)
         newsLbl.textColor = UIColor.secondryColor()
         newsLbl.textAlignment = .center
         newsLbl.text = "الأخبار"

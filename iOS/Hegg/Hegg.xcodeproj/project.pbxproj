@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		331241781F4F8E080039059D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 331241771F4F8E080039059D /* GoogleService-Info.plist */; };
 		331EB6551F3A8C7C0065BA2E /* ContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331EB6541F3A8C7C0065BA2E /* ContactVC.swift */; };
 		331FDB281F3B41F00014740B /* FatwaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331FDB271F3B41F00014740B /* FatwaVC.swift */; };
 		331FDB2A1F3B4ED40014740B /* ChairOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331FDB291F3B4ED40014740B /* ChairOrderVC.swift */; };
@@ -18,7 +19,6 @@
 		332342B11F38D0A800909D1F /* TimelineVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332342B01F38D0A800909D1F /* TimelineVC.swift */; };
 		332342B31F38D17700909D1F /* TimelineItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332342B21F38D17700909D1F /* TimelineItem.swift */; };
 		332342B51F38D20500909D1F /* TimelineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332342B41F38D20500909D1F /* TimelineCell.swift */; };
-		3324C0661F4BB7D300F95CFC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3324C0651F4BB7D300F95CFC /* GoogleService-Info.plist */; };
 		3332E6C11F3FABAA0071F2A7 /* MapListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332E6C01F3FABAA0071F2A7 /* MapListVC.swift */; };
 		3332E6C31F3FAEFA0071F2A7 /* MapListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332E6C21F3FAEFA0071F2A7 /* MapListCell.swift */; };
 		3353A6611F2B68F300CCDDA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3353A6601F2B68F300CCDDA3 /* AppDelegate.swift */; };
@@ -57,10 +57,13 @@
 		33A3CBE71F4A64A800F05234 /* TGTextMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A3CBDA1F4A64A800F05234 /* TGTextMessageCell.swift */; };
 		33A3CBE81F4A64A800F05234 /* TGTextMessageCellLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A3CBDB1F4A64A800F05234 /* TGTextMessageCellLayout.swift */; };
 		33A3CBE91F4A64A800F05234 /* TGTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A3CBDC1F4A64A800F05234 /* TGTitleView.swift */; };
+		33A9EF881F9688F20069BE1D /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A9EF861F9688F20069BE1D /* SWRevealViewController.m */; };
+		33A9EF8A1F9689470069BE1D /* SideMenuTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A9EF891F9689470069BE1D /* SideMenuTV.swift */; };
 		33DB29721F2B9DA700ADD657 /* SSASideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DB29711F2B9DA700ADD657 /* SSASideMenu.swift */; };
 		33DB29741F2B9DD800ADD657 /* SideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DB29731F2B9DD800ADD657 /* SideMenuVC.swift */; };
 		33DB29761F2B9E2800ADD657 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DB29751F2B9E2800ADD657 /* Extensions.swift */; };
 		33DB29791F2BD95300ADD657 /* MapLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DB29781F2BD95300ADD657 /* MapLocations.swift */; };
+		33E5F32C1FA8E3A800548AF2 /* Urls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E5F32B1FA8E3A800548AF2 /* Urls.swift */; };
 		33F4A76C1F3512A500869C33 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F4A76B1F3512A500869C33 /* VideoCell.swift */; };
 		33F4A76E1F351A2000869C33 /* VideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F4A76D1F351A2000869C33 /* VideoVC.swift */; };
 		33F4A7711F35318E00869C33 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F4A7701F35318E00869C33 /* Video.swift */; };
@@ -71,6 +74,7 @@
 
 /* Begin PBXFileReference section */
 		1015C02AAD749255FAD1D8A8 /* Pods-Hegg.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hegg.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hegg/Pods-Hegg.debug.xcconfig"; sourceTree = "<group>"; };
+		331241771F4F8E080039059D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		331EB6541F3A8C7C0065BA2E /* ContactVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactVC.swift; sourceTree = "<group>"; };
 		331FDB271F3B41F00014740B /* FatwaVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FatwaVC.swift; sourceTree = "<group>"; };
 		331FDB291F3B4ED40014740B /* ChairOrderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChairOrderVC.swift; sourceTree = "<group>"; };
@@ -82,7 +86,6 @@
 		332342B01F38D0A800909D1F /* TimelineVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineVC.swift; sourceTree = "<group>"; };
 		332342B21F38D17700909D1F /* TimelineItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineItem.swift; sourceTree = "<group>"; };
 		332342B41F38D20500909D1F /* TimelineCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineCell.swift; sourceTree = "<group>"; };
-		3324C0651F4BB7D300F95CFC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3332E6C01F3FABAA0071F2A7 /* MapListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapListVC.swift; sourceTree = "<group>"; };
 		3332E6C21F3FAEFA0071F2A7 /* MapListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapListCell.swift; sourceTree = "<group>"; };
 		3353A65D1F2B68F300CCDDA3 /* Hegg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hegg.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,11 +128,16 @@
 		33A3CBDB1F4A64A800F05234 /* TGTextMessageCellLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TGTextMessageCellLayout.swift; sourceTree = "<group>"; };
 		33A3CBDC1F4A64A800F05234 /* TGTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TGTitleView.swift; sourceTree = "<group>"; };
 		33A7A8151F4B3A72009715BE /* Hegg.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hegg.entitlements; sourceTree = "<group>"; };
+		33A9EF841F9688F10069BE1D /* Hegg-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hegg-Bridging-Header.h"; sourceTree = "<group>"; };
+		33A9EF851F9688F20069BE1D /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		33A9EF861F9688F20069BE1D /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		33A9EF891F9689470069BE1D /* SideMenuTV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTV.swift; sourceTree = "<group>"; };
 		33D7E87E1F2B853500880D25 /* GESS.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GESS.otf; sourceTree = "<group>"; };
 		33DB29711F2B9DA700ADD657 /* SSASideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSASideMenu.swift; sourceTree = "<group>"; };
 		33DB29731F2B9DD800ADD657 /* SideMenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuVC.swift; sourceTree = "<group>"; };
 		33DB29751F2B9E2800ADD657 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		33DB29781F2BD95300ADD657 /* MapLocations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapLocations.swift; sourceTree = "<group>"; };
+		33E5F32B1FA8E3A800548AF2 /* Urls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Urls.swift; sourceTree = "<group>"; };
 		33F4A76B1F3512A500869C33 /* VideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		33F4A76D1F351A2000869C33 /* VideoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoVC.swift; sourceTree = "<group>"; };
 		33F4A7701F35318E00869C33 /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
@@ -160,6 +168,7 @@
 				332342AE1F38A60600909D1F /* EnglishToArabic.swift */,
 				33A3CBC61F4A611F00F05234 /* MessageManager.swift */,
 				33A3CBC81F4A624C00F05234 /* SoundManager.swift */,
+				33E5F32B1FA8E3A800548AF2 /* Urls.swift */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -197,7 +206,7 @@
 				3353A6671F2B68F300CCDDA3 /* Assets.xcassets */,
 				3353A6691F2B68F300CCDDA3 /* LaunchScreen.storyboard */,
 				3353A66C1F2B68F300CCDDA3 /* Info.plist */,
-				3324C0651F4BB7D300F95CFC /* GoogleService-Info.plist */,
+				331241771F4F8E080039059D /* GoogleService-Info.plist */,
 			);
 			path = Hegg;
 			sourceTree = "<group>";
@@ -275,8 +284,12 @@
 		33DB29701F2B9D6D00ADD657 /* SideMenu */ = {
 			isa = PBXGroup;
 			children = (
+				33A9EF851F9688F20069BE1D /* SWRevealViewController.h */,
+				33A9EF861F9688F20069BE1D /* SWRevealViewController.m */,
+				33A9EF841F9688F10069BE1D /* Hegg-Bridging-Header.h */,
 				33DB29711F2B9DA700ADD657 /* SSASideMenu.swift */,
 				33DB29731F2B9DD800ADD657 /* SideMenuVC.swift */,
+				33A9EF891F9689470069BE1D /* SideMenuTV.swift */,
 			);
 			name = SideMenu;
 			sourceTree = "<group>";
@@ -388,7 +401,8 @@
 					3353A65C1F2B68F300CCDDA3 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 8R4R3LC68P;
-						ProvisioningStyle = Automatic;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -422,7 +436,7 @@
 			files = (
 				3353A66B1F2B68F300CCDDA3 /* LaunchScreen.storyboard in Resources */,
 				335431C71F2D364E00E1E0AA /* GESS.otf in Resources */,
-				3324C0661F4BB7D300F95CFC /* GoogleService-Info.plist in Resources */,
+				331241781F4F8E080039059D /* GoogleService-Info.plist in Resources */,
 				3353A6681F2B68F300CCDDA3 /* Assets.xcassets in Resources */,
 				3353A6661F2B68F300CCDDA3 /* Main.storyboard in Resources */,
 			);
@@ -507,6 +521,7 @@
 				33A3CBE81F4A64A800F05234 /* TGTextMessageCellLayout.swift in Sources */,
 				332342AA1F38A16300909D1F /* NewsVC.swift in Sources */,
 				33A3CBE31F4A64A800F05234 /* TGDateMessageCellLayout.swift in Sources */,
+				33E5F32C1FA8E3A800548AF2 /* Urls.swift in Sources */,
 				331EB6551F3A8C7C0065BA2E /* ContactVC.swift in Sources */,
 				33A3CBE61F4A64A800F05234 /* TGSystemMessageCellLayout.swift in Sources */,
 				332342A81F3897D800909D1F /* NewsCell.swift in Sources */,
@@ -514,6 +529,7 @@
 				33A3CBE41F4A64A800F05234 /* TGDeliveryStatusView.swift in Sources */,
 				3353A6631F2B68F300CCDDA3 /* LandingVC.swift in Sources */,
 				33687DDC1F39E5AF007E7904 /* GalleryCell.swift in Sources */,
+				33A9EF8A1F9689470069BE1D /* SideMenuTV.swift in Sources */,
 				336E21931F374D7A0056DDC6 /* Camp.swift in Sources */,
 				3388B94F1F488B8A00680B8B /* GuideDetailsVC.swift in Sources */,
 				3353A6611F2B68F300CCDDA3 /* AppDelegate.swift in Sources */,
@@ -535,6 +551,7 @@
 				33A3CBE11F4A64A800F05234 /* TGClockProgressView.swift in Sources */,
 				3332E6C11F3FABAA0071F2A7 /* MapListVC.swift in Sources */,
 				33DB29791F2BD95300ADD657 /* MapLocations.swift in Sources */,
+				33A9EF881F9688F20069BE1D /* SWRevealViewController.m in Sources */,
 				33F4A7731F3532C700869C33 /* Utils.swift in Sources */,
 				33A3CBC51F4A602800F05234 /* ChatMsg.swift in Sources */,
 			);
@@ -660,15 +677,20 @@
 			baseConfigurationReference = 1015C02AAD749255FAD1D8A8 /* Pods-Hegg.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Hegg/Hegg.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 8R4R3LC68P;
 				INFOPLIST_FILE = Hegg/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.peekssolutions.fogalhoda;
+				PRODUCT_BUNDLE_IDENTIFIER = com.foujalhuda.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "6b728ad4-db3f-42d7-a72b-800d283faf36";
+				PROVISIONING_PROFILE_SPECIFIER = "Fouj Al-Huda";
+				SWIFT_OBJC_BRIDGING_HEADER = "Hegg/Hegg-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -679,15 +701,19 @@
 			baseConfigurationReference = C653A3C85D7C82963E51EFD3 /* Pods-Hegg.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Hegg/Hegg.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 8R4R3LC68P;
 				INFOPLIST_FILE = Hegg/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.peekssolutions.fogalhoda;
+				PRODUCT_BUNDLE_IDENTIFIER = com.foujalhuda.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "6b728ad4-db3f-42d7-a72b-800d283faf36";
+				PROVISIONING_PROFILE_SPECIFIER = "Fouj Al-Huda";
+				SWIFT_OBJC_BRIDGING_HEADER = "Hegg/Hegg-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

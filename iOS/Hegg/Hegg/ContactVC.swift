@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class ContactVC: UIViewController {
+class ContactVC: UIViewController, SWRevealViewControllerDelegate {
     
     var subjectTF = UITextField()
     var msgTF = UITextView()
@@ -22,8 +22,6 @@ class ContactVC: UIViewController {
     
     let margin: CGFloat = 30
     
-    let contactMsgUrl = "http://hegg.nakeeb.me/API/hoda/contactMsg.php"
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,9 +32,19 @@ class ContactVC: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = UIColor.clear
         
-        let image = UIImage(named:"sideMenuIcon")?.withRenderingMode(.alwaysTemplate)
+        if revealViewController() != nil{
+            
+            self.revealViewController().delegate = self
+            let image = UIImage(named:"sideMenuIcon")?.withRenderingMode(.alwaysTemplate)
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target:  revealViewController(), action: #selector(SWRevealViewController.rightRevealToggle(_:)))
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+            
+        }
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(SSASideMenu.presentRightMenuViewController))
+//        let image = UIImage(named:"sideMenuIcon")?.withRenderingMode(.alwaysTemplate)
+//        
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(SSASideMenu.presentRightMenuViewController))
         
         initViews()
     }
@@ -216,12 +224,12 @@ class ContactVC: UIViewController {
 
         print(parameters)
         
-        let url = contactMsgUrl
+        let url = Urls.contactUS
         + "?userID=" + "\(UserDefaults.standard.integer(forKey: "userID"))"
         + "&subject=" + subjectTF.text!
         + "&msg=" + msgTF.text
 
-        Alamofire.request(contactMsgUrl, method: .post, parameters: parameters)
+        Alamofire.request(Urls.contactUS, method: .post, parameters: parameters)
             .responseJSON{
                 
                 response in

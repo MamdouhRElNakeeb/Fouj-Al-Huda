@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import CollieGallery
 
-class GalleryVC: UIViewController {
+class GalleryVC: UIViewController, SWRevealViewControllerDelegate {
 
     var galleryCV: UICollectionView!
     var spinner = UIActivityIndicatorView()
@@ -27,9 +27,19 @@ class GalleryVC: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        let image = UIImage(named:"sideMenuIcon")?.withRenderingMode(.alwaysTemplate)
+        if revealViewController() != nil{
+            
+            self.revealViewController().delegate = self
+            let image = UIImage(named:"sideMenuIcon")?.withRenderingMode(.alwaysTemplate)
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target:  revealViewController(), action: #selector(SWRevealViewController.rightRevealToggle(_:)))
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+            
+        }
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(SSASideMenu.presentRightMenuViewController))
+//        let image = UIImage(named:"sideMenuIcon")?.withRenderingMode(.alwaysTemplate)
+//        
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(SSASideMenu.presentRightMenuViewController))
         
         self.navigationItem.leftBarButtonItem?.title = "رجوع"
         
@@ -42,7 +52,7 @@ class GalleryVC: UIViewController {
         
        
         initGalleryCV()
-        initSpinner()
+        //initSpinner()
         loadGallery()
         
         let whiteNB = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 64))
@@ -108,23 +118,23 @@ class GalleryVC: UIViewController {
     
     func loadGallery(){
      
-        displaySpinner()
+        //displaySpinner()
         
         let utils: Utils = Utils()
         
         if !utils.isConnectedToNetwork(){
-            dismissSpinner()
+            //dismissSpinner()
             let alert = UIAlertController(title: "تنبيه", message: "يوجد مشكلة فى الإتصال بالإنترنت", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "حاول مرة أخرى", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
             return
         }
         
-        Alamofire.request(galleryUrl + "gallery.php").responseJSON{
+        Alamofire.request(Urls.gallery).responseJSON{
             
             response in
             
-            self.dismissSpinner()
+            //self.dismissSpinner()
             print(response)
             
             if let result = response.result.value {
@@ -134,7 +144,7 @@ class GalleryVC: UIViewController {
                 for galleryJSONObj in galleryJSONArr{
                     
                     self.galleryArray.append(galleryJSONObj as! String)
-                    self.pictures.append(CollieGalleryPicture(url: self.galleryUrl + "Gallery/" + (galleryJSONObj as! String)))
+                    self.pictures.append(CollieGalleryPicture(url: Urls.photosDir + (galleryJSONObj as! String)))
                 }
                 
                 self.galleryCV.reloadData()

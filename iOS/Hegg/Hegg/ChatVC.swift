@@ -10,7 +10,7 @@ import UIKit
 import NoChat
 import Alamofire
 
-class ChatVC: NOCChatViewController, UINavigationControllerDelegate, MessageManagerDelegate, TGChatInputTextPanelDelegate, TGTextMessageCellDelegate {
+class ChatVC: NOCChatViewController, UINavigationControllerDelegate, MessageManagerDelegate, TGChatInputTextPanelDelegate, TGTextMessageCellDelegate, SWRevealViewControllerDelegate {
     
     var titleView = TGTitleView()
     var avatarButton = TGAvatarButton()
@@ -18,7 +18,7 @@ class ChatVC: NOCChatViewController, UINavigationControllerDelegate, MessageMana
     var messageManager = MessageManager.manager
     var layoutQueue = DispatchQueue(label: "com.little2s.nochat-example.tg.layout", qos: DispatchQoS(qosClass: .default, relativePriority: 0))
     
-    let chat: Chat
+    var chat: Chat
     
     // MARK: Overrides
     
@@ -66,9 +66,19 @@ class ChatVC: NOCChatViewController, UINavigationControllerDelegate, MessageMana
         backgroundView?.image = UIImage(named: "TGWallpaper")!
         //navigationController?.delegate = self
         
-        let image = UIImage(named:"sideMenuIcon")?.withRenderingMode(.alwaysTemplate)
+        if revealViewController() != nil{
+            
+            self.revealViewController().delegate = self
+            let image = UIImage(named:"sideMenuIcon")?.withRenderingMode(.alwaysTemplate)
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target:  revealViewController(), action: #selector(SWRevealViewController.rightRevealToggle(_:)))
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+            
+        }
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(SSASideMenu.presentRightMenuViewController))
+//        let image = UIImage(named:"sideMenuIcon")?.withRenderingMode(.alwaysTemplate)
+//        
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(SSASideMenu.presentRightMenuViewController))
         
         self.navigationItem.leftBarButtonItem?.title = "رجوع"
         
@@ -166,13 +176,12 @@ class ChatVC: NOCChatViewController, UINavigationControllerDelegate, MessageMana
         
         layouts.removeAllObjects()
         
-        let chatUrl = "http://hegg.nakeeb.me/API/qassem/getChat.php"
         
         let parameters: Parameters=[
             "userID": UserDefaults.standard.string(forKey: "userID") ?? 1
         ]
         
-        Alamofire.request(chatUrl, method: .post, parameters: parameters)
+        Alamofire.request(Urls.chatGet, method: .post, parameters: parameters)
             .responseJSON{
                 
                 response in
@@ -228,14 +237,12 @@ class ChatVC: NOCChatViewController, UINavigationControllerDelegate, MessageMana
         
         //messageManager.sendMessage(message, toChat: chat)
         
-        let chatUrl = "http://hegg.nakeeb.me/API/qassem/sendMsg.php"
-        
         let parameters: Parameters=[
             "userID": message.senderId,
             "msg": message.text
         ]
         
-        Alamofire.request(chatUrl, method: .post, parameters: parameters)
+        Alamofire.request(Urls.chatSend, method: .post, parameters: parameters)
             .responseJSON{
                 
                 response in

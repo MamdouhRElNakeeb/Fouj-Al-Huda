@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>782550866432-dhl9tbcqr9sb5iaf5hk20n1vrph74ri2.apps.googleusercontent.com</string>
+	<string>782550866432-p1k47p5ccke95al0q2v6n3jhtid4ind1.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.782550866432-dhl9tbcqr9sb5iaf5hk20n1vrph74ri2</string>
+	<string>com.googleusercontent.apps.782550866432-p1k47p5ccke95al0q2v6n3jhtid4ind1</string>
 	<key>API_KEY</key>
 	<string>AIzaSyB-rMppWTTvlZCHCtRG-t-KvojzBlNNT2s</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,7 +17,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.peekssolutions.fogalhoda</string>
+	<string>com.peekssolutions.foujalhuda</string>
 	<key>PROJECT_ID</key>
 	<string>fog-al-hoda</string>
 	<key>STORAGE_BUCKET</key>
@@ -33,7 +33,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:782550866432:ios:345c38240736af2e</string>
+	<string>1:782550866432:ios:0658f270d31e45eb</string>
 	<key>DATABASE_URL</key>
 	<string>https://fog-al-hoda.firebaseio.com</string>
 </dict>

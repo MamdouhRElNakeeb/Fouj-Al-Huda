@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class ChairOrderVC: UIViewController {
+class ChairOrderVC: UIViewController, SWRevealViewControllerDelegate {
     
     var subjectTF = UITextField()
     var msgTF = UITextView()
@@ -22,8 +22,6 @@ class ChairOrderVC: UIViewController {
     
     let margin: CGFloat = 30
     
-    let contactMsgUrl = "http://hegg.nakeeb.me/API/hoda/chairOrder.php"
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,9 +32,19 @@ class ChairOrderVC: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = UIColor.clear
         
-        let image = UIImage(named:"sideMenuIcon")?.withRenderingMode(.alwaysTemplate)
+        if revealViewController() != nil{
+            
+            self.revealViewController().delegate = self
+            let image = UIImage(named:"sideMenuIcon")?.withRenderingMode(.alwaysTemplate)
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target:  revealViewController(), action: #selector(SWRevealViewController.rightRevealToggle(_:)))
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+            
+        }
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(SSASideMenu.presentRightMenuViewController))
+//        let image = UIImage(named:"sideMenuIcon")?.withRenderingMode(.alwaysTemplate)
+//        
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(SSASideMenu.presentRightMenuViewController))
         
         initViews()
         
@@ -161,12 +169,12 @@ class ChairOrderVC: UIViewController {
         }
 
         
-        displaySpinner()
+        //displaySpinner()
         
         let utils: Utils = Utils()
         
         if !utils.isConnectedToNetwork(){
-            dismissSpinner()
+            //dismissSpinner()
             let alert = UIAlertController(title: "تنبيه", message: "يوجد مشكلة فى الإتصال بالإنترنت", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "حاول مرة أخرى", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
@@ -181,12 +189,12 @@ class ChairOrderVC: UIViewController {
         print(parameters)
         
         
-        Alamofire.request(contactMsgUrl, method: .post, parameters: parameters)
+        Alamofire.request(Urls.chairOrder, method: .post, parameters: parameters)
             .responseJSON{
                 
                 response in
                 
-                self.dismissSpinner()
+                //self.dismissSpinner()
                 print(response)
                 
                 if let result = response.result.value{
